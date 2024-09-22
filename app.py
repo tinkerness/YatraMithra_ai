@@ -23,12 +23,14 @@ llm = ChatGoogleGenerativeAI(model="gemini-pro", google_api_key=google_api_key)
 travel_prompt = """
 You are a travel guide. Provide a list of top travel locations within or nearby the specified place. Also include details necessary for planning a trip such as suitability for solo travelers, families, or friends, age considerations, weather, terrain, etc.
 Place: {}
+User preferences: {}
 """
 
 # Define Functions to Interact with the LLM
 # Use the travel prompt to get a list of locations
-def generate_travel_recommendations(place, travel_prompt):
-    response = llm.invoke(travel_prompt + place)
+## Also adding: Personalized travel recommendations
+def generate_travel_recommendations(place, preferences):
+    response = llm.invoke(travel_prompt.format(place, preferences))
     return response.content
 
 # Define function to fetch an image for a given query from Unsplash
@@ -68,7 +70,9 @@ def save_travel_data(travel_details):
         pw.io.jsonlines.write(travel_table, output_path)
         # pw.io.jsonlines.write(travel_df, output_path)
     except Exception as e:  
-        st.error(f"Error saving travel data: {e}")
+        # st.error(f"Error saving travel data: {e}")
+        # st.error("Error saving travel data !")
+        print(e)
 
 # Load the travel data from the JSON Lines file using Pathway
 def load_travel_data():
@@ -80,7 +84,8 @@ def load_travel_data():
         # travel_df = pw.io.jsonlines.read(input_path, schema=TravelSchema)
         # return travel_df.to_dict(orient="records")
     except Exception as e:
-        st.error(f"Error loading travel data: {e}")
+        # st.error(f"Error loading travel data: {e}")
+        st.error("Error loading travel data !")
         return {}
 
 
@@ -89,7 +94,8 @@ st.set_page_config(page_title="Yatra Mithra", page_icon="🌍", layout="wide")
 st.title("Yatra Mithra 🌍")
 
 # Text input for the user to enter a place
-place = st.text_input(" Enter the name of a country or place ", placeholder="e.g., Paris, France")
+place = st.text_input(" Enter a country or place ", placeholder="e.g., Paris, France")
+preferences = st.text_area("Enter your travel preferences (e.g., budget, solo, family)")
 
 
 # Display the travel recommendations and details
@@ -101,7 +107,7 @@ if st.button("Get Travel Recommendations"):
             st.image(place_image_url, caption=f"Image of {place} from Unsplash", use_column_width=True)
         
         # Get travel recommendations
-        travel_recommendations = generate_travel_recommendations(place, travel_prompt)
+        travel_recommendations = generate_travel_recommendations(place, preferences)
         st.markdown("### Top Travel Locations")
         st.write(travel_recommendations)
         
