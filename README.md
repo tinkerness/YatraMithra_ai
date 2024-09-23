@@ -74,8 +74,9 @@ Yatra Mithra is a travel recommendation web application designed to provide user
 ![Demo Image](/snips/hero_img.png)
 ![Demo Image](/snips/content.png)
 [Demo Video](/snips/demo.webm) -->
-[demo.webm](https://github.com/user-attachments/assets/f360a0cc-2247-4882-a1cb-ca780da2c352)
-[map.webm](https://github.com/user-attachments/assets/7e2a8446-af8e-4397-a5a2-5461fefac61d)
+[demo.webm](https://github.com/user-attachments/assets/f360a0cc-2247-4882-a1cb-ca780da2c352)  
+
+[map.webm](https://github.com/user-attachments/assets/7e2a8446-af8e-4397-a5a2-5461fefac61d)  
 
 
 
