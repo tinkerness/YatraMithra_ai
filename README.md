@@ -9,6 +9,7 @@ Yatra Mithra is a travel recommendation web application designed to provide user
 - **Personalised Recommendations:** Get filtered travel locations based on your travel preferences.
 - **Detailed Information:** Receive detailed information about each location, including suitability, age considerations, weather, terrain, and other details.
 - **Image Fetching:** Display images of the specified place and travel locations from Unsplash.
+- **Interactive Maps:** Integration of interactive maps to visualize travel locations
 <!-- - **Save and Load Data:** Save travel data to a JSON Lines file and load previously saved data. -->
 
 
@@ -17,6 +18,8 @@ Yatra Mithra is a travel recommendation web application designed to provide user
 - **Frontend:** Streamlit
 - **Backend:** Gemini-pro (for generating travel recommendations)
 - **Image Fetching:** Unsplash API
+- **Interactive Maps:** Folium
+- **Geocoding:** OpenCage API
 - **Data Processing:** Pathway
 - **Data Storage:** JSON Lines
 
@@ -29,6 +32,8 @@ Yatra Mithra is a travel recommendation web application designed to provide user
 - Langchain_google_genai
 - Pathway
 - dotenv
+- Folium
+- Opencage
 
 
 ## Installation
@@ -52,6 +57,7 @@ Yatra Mithra is a travel recommendation web application designed to provide user
     ```env
     GOOGLE_API_KEY=your_google_api_key
     UNSPLASH_ACCESS_KEY=your_unsplash_access_key
+    OPENCAGE_API_KEY=your_opencage_api_key
     ```
 
 
@@ -63,8 +69,8 @@ Yatra Mithra is a travel recommendation web application designed to provide user
     ```
 2. In the browser go to [http://localhost:8501](http://localhost:8501).
 3. **Interact with the app:**
-    - Enter the name of a country or place in the text input field.
-    - Click "Get Travel Recommendations" to see a list of top travel locations and an image of the place.
+    - Enter the name of a country or place and the travel preferences in the corresponding text input fields.
+    - Click "Get Travel Recommendations" to see a list of top travel locations based on the input preferences along with the image and an interactive map of the place.
     - Use the "Load Saved Travel Data" button to view previously saved travel data.
 
 
@@ -80,11 +86,7 @@ Yatra Mithra is a travel recommendation web application designed to provide user
 
 
 
-
 <!-- ## Future Improvements
 
-- **Enhanced Recommendations:** Integrate more detailed and personalized travel recommendations.
 - **User Reviews:** Allow users to submit and view reviews for travel locations.
-- **Interactive Maps:** Integrate interactive maps to visualize travel locations.
-- **Additional APIs:** Incorporate more APIs for additional data sources and features.
 - **Multi-language Support:** Add support for multiple languages to cater to a global audience. -->
