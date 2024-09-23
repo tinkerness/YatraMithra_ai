@@ -4,3 +4,7 @@ pathway
 json
 requests
 python-dotenv
+
+# for map
+folium
+opencage
